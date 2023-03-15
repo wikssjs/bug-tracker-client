@@ -13,6 +13,12 @@ export default function Admin() {
     const [Role, setRole] = useState('')
     const formRef = useRef(null);
 
+    const [headers, setHeaders] = useState({
+        'Content-Type': 'application/json',
+        'X-API-Key': `ksklkweiowekdl908w03iladkl`
+      });
+
+
     useEffect(() => {
         const headers = {
             'Content-Type': 'application/json',
@@ -56,9 +62,7 @@ export default function Admin() {
 
         const response = await fetch('https://james-bug-api.herokuapp.com/edit-user', {
             method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: headers,
             body: JSON.stringify(user)
         })
 
