@@ -1,0 +1,29 @@
+.sidebar{
+    font-size: 1em;
+background: rgba(59, 113, 202, 1);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(0px);
+-webkit-backdrop-filter: blur(0px);
+border: 1px solid rgba(59, 113, 202, 0.3);
+width: 200px;
+}
+
+.sidebar h3{
+    font-weight: bold;
+}
+
+.sidebar .logOut{
+    outline: none;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.nav_menu{
+    list-style: none;
+}
+.nav_menu a{
+    text-decoration: none;
+    list-style: none;
+    font-weight: bold;
+}

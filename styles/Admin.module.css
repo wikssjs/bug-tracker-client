@@ -1,0 +1,15 @@
+.admin{
+}
+
+.admin h1{
+    font-size: 2.5em;
+}
+
+.admin h2{
+    font-size: 1.7em;
+}
+
+.admin table tbody tr:hover{
+    background-color: aliceblue;
+    cursor: pointer;
+}
