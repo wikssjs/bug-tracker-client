@@ -138,7 +138,7 @@ export default function Main() {
                       <td>{project.description}</td>
                       <td>{projects.contributors.map((user) => {
                         if (user.project_id === project.id) {
-                          return <p>{user.username}</p>
+                          return <p key={project.id}>{user.username}</p>
                         }
                       })}</td>
                       <button onClick={handleEdit} data-id={project.id} data-name={project.name} data-description={project.description} className={`${styles.editButton} btn btn-primary bg-primary d-flex gap-2`}>Edit <i className='bi bi-pencil-square'></i></button>
