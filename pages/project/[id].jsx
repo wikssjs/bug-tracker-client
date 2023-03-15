@@ -67,7 +67,7 @@ export default function Project() {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [document]);
+  }, []);
 
   const handleClickOutside = (event) => {
     if (popupRef.current && !popupRef.current.contains(event.target)) {
