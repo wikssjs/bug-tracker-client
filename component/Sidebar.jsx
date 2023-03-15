@@ -20,6 +20,7 @@ export default function Sidebar() {
 
     return (
         <div className={`${styles.sidebar} col-sm-2 bg- text-center`}>
+            <h5 className='text-warning mt-3'>In Development ...</h5>
             <h3 className="text-white mt-4 mb-4">Bug Tracker</h3>
             <ul className={`${styles.nav_menu} d-flex flex-column gap-5 text-start`}>
                 <li><Link href="/" className="text-white"><i className='bi bi-laptop'></i> DashBoard</Link></li>
