@@ -10,12 +10,17 @@ export default function ProjectPopup({ setShowPopup, setNotification, setAddProj
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [chekedBoxes, setChekedBoxes] = useState([]);
     const popupRef = useRef(null);
+    const [headers, setHeaders] = useState({
+        'Content-Type': 'application/json',
+        'X-API-Key': `ksklkweiowekdl908w03iladkl`
+      });
+
 
 
 
 
     useEffect(() => {
-        fetch('https://james-bug-api.herokuapp.com/users')
+        fetch('https://james-bug-api.herokuapp.com/users', {headers: headers})
             .then(res => res.json())
             .then(data => setContributors(data.users))
     }, [])
@@ -75,9 +80,7 @@ export default function ProjectPopup({ setShowPopup, setNotification, setAddProj
         //post request
         let response = await fetch('https://james-bug-api.herokuapp.com/add-project', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: headers,
             body: JSON.stringify(data)
         })
         console.log("datasend");
