@@ -126,7 +126,7 @@ export default function ProjectPopup({ setShowPopup, setNotification, setAddProj
                             contributors.map((contributor) => {
 
                                 return (
-                                    <li data-id={contributor.id} onClick={(event) => { event.currentTarget.classList.toggle("checked"); event.currentTarget.classList.contains("checked" ? handleCheck(event) : "") }} className={`item `}>
+                                    <li key={contributor.id} data-id={contributor.id} onClick={(event) => { event.currentTarget.classList.toggle("checked"); event.currentTarget.classList.contains("checked" ? handleCheck(event) : "") }} className={`item `}>
                                         <span class="checkbox">
                                             <i class="bi bi-check-lg check-icon"></i>
                                         </span>
