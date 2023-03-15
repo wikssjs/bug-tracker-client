@@ -67,7 +67,7 @@ export default function Project() {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
+  }, [document]);
 
   const handleClickOutside = (event) => {
     if (popupRef.current && !popupRef.current.contains(event.target)) {
@@ -184,7 +184,7 @@ export default function Project() {
                 <tbody>
                   {
                     team && team.map((user) => (
-                      <tr>
+                      <tr key={user.id}>
                         <td>{user.username}</td>
                         <td>{user.email}</td>
                         <td>
@@ -221,7 +221,7 @@ export default function Project() {
                 <tbody>
                   {
                     project && project.map((ticket) => (
-                      <tr onClick={()=>{redirectUser(ticket.id)}}>
+                      <tr key={ticket.id} onClick={()=>{redirectUser(ticket.id)}}>
                         <td>{ticket.title}</td>
                         <td>{ticket.description}</td>
                         <td>{ticket.username}</td>
@@ -260,7 +260,7 @@ export default function Project() {
                     const isOldcontributor = team.find((user) => user.id === contributor.id);
 
                     return (
-                      <li data-id={contributor.id} onClick={(event) => { event.currentTarget.classList.toggle("checked"); event.currentTarget.classList.contains("checked" ? handleCheck(event) : "") }} className={`item ${isOldcontributor ? "checked" : ""}`}>
+                      <li key={contributor.id} data-id={contributor.id} onClick={(event) => { event.currentTarget.classList.toggle("checked"); event.currentTarget.classList.contains("checked" ? handleCheck(event) : "") }} className={`item ${isOldcontributor ? "checked" : ""}`}>
                         <span class="checkbox">
                           <i class="bi bi-check-lg check-icon"></i>
                         </span>

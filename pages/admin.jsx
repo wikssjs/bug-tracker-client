@@ -95,7 +95,7 @@ export default function Admin() {
                                     {
                                         users.map((user) => {
                                             return (
-                                                <tr data-id={user.id} onClick={handleClick}>
+                                                <tr key={user.id} data-id={user.id} onClick={handleClick}>
                                                     <td>{user.nom} {user.prenom}</td>
                                                     <td>{user.role}</td>
                                                 </tr>
