@@ -50,7 +50,7 @@ export default function Main() {
     fetch('https://james-bug-api.herokuapp.com/', { headers: headers })
       .then(res => res.json())
       .then(data => setProjects(data))
-  }, [notification])
+  }, [])
 
   useEffect(() => {
 

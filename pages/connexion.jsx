@@ -6,6 +6,11 @@ export default function Connexion(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const headers = {
+        'Content-Type': 'application/json',
+        'X-API-Key': `ksklkweiowekdl908w03iladkl`
+    };
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -14,25 +19,28 @@ export default function Connexion(){
             password: password
         }
 
-        const headers = {
-            'Content-Type': 'application/json',
-            'X-API-Key': `ksklkweiowekdl908w03iladkl`
-          };
+        try{
+
+        
         let response  = await fetch(`https://james-bug-api.herokuapp.com/user/login`, {
             method: "POST",
             headers: headers,
-            body: JSON.stringify(user)
-
+            body: JSON.stringify(user),
+            credentials: 'include'
         });
 
         if(response.ok){
-           
+           alert("You are connected");
             window.location.href = "/";
         }
-
         else{
             setError("Email or password incorrect");
         }
+    } catch (error) {
+        console.error(error);
+
+    }
+    
 
     }
 
