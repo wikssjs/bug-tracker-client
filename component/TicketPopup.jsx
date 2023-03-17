@@ -10,14 +10,18 @@ export default function TicketPopup({ setShowTicketPopPup, project_id, setFetchD
     const [status, setStatus] = useState(ticket ? ticket.status : "Open");
     const [priority, setPriority] = useState(ticket ? ticket.priority : "Low");
     const [chekedBoxes, setChekedBoxes] = useState([]);
-    const [headers, setHeaders] = useState({
-        'Content-Type': 'application/json',
-        'X-API-Key': `ksklkweiowekdl908w03iladkl`
-      });
+    const [headers, setHeaders] = useState({});
 
     let tour = 0;
 
     useEffect(() => {
+
+        const token = localStorage.getItem('token');
+        setHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `ksklkweiowekdl908w03iladkl ${token}`
+        });
+
         fetch('https://james-bug-api.herokuapp.com/users', { headers: headers })
             .then(res => res.json())
             .then(data => setContributors(data.users))

@@ -6,15 +6,17 @@ export default function Comments({ticketId}) {
     const [comment, setComment] = useState("");
     const[fetchData, setFetchData] = useState(false);
     const [saveTicketId, setSaveTicketId] = useState(ticketId);
-    const [headers, setHeaders] = useState({
-        'Content-Type': 'application/json',
-        'X-API-Key': `ksklkweiowekdl908w03iladkl`
-      });
+    const [headers, setHeaders] = useState({});
 
 
 
     useEffect(() => {
 
+        const token = localStorage.getItem('token');
+        setHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `ksklkweiowekdl908w03iladkl ${token}`
+        });
         
         if (ticketId) {
             setSaveTicketId(ticketId);
@@ -55,7 +57,6 @@ export default function Comments({ticketId}) {
             setFetchData(!fetchData);
         }
         else{
-            alert(response.status);
         }
 
     }
@@ -83,7 +84,6 @@ export default function Comments({ticketId}) {
             setFetchData(!fetchData);
         }
         else {
-            alert(response.status);
         }
     }
 

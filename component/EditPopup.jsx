@@ -9,17 +9,19 @@ export default function EditPopup({ setShowEditPopup, setNotification, editProje
     const [users, setUsers] = useState([]);
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [chekedBoxes, setChekedBoxes] = useState([]);
-    const [headers, setHeaders] = useState({
-        'Content-Type': 'application/json',
-        'X-API-Key': `ksklkweiowekdl908w03iladkl`
-      });
+    const [headers, setHeaders] = useState({});
 
-
-    const itemRef = useRef(null);
 
     let tour = 0;
 
     useEffect(() => {
+
+        const token = localStorage.getItem('token');
+        setHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `ksklkweiowekdl908w03iladkl ${token}`
+        });
+
         fetch('https://james-bug-api.herokuapp.com/users', { headers: headers })
             .then(res => res.json())
             .then(data => setContributors(data.users))
@@ -104,7 +106,6 @@ export default function EditPopup({ setShowEditPopup, setNotification, editProje
             setShowEditPopup(false);
         }
         else {
-            alert('error')
         }
 
     }

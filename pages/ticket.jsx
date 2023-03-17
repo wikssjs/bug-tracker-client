@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Comments from "../component/Comments";
+import jwt from "jsonwebtoken";
 import TicketPopup from "../component/TicketPopup";
 import styles from "../styles/Ticket.Id.module.css";
 
@@ -15,14 +16,20 @@ export default function Ticket() {
     const { ticket_id, project_id } = router.query;
 
     const [saveTicketId, setSaveTicketId] = useState(ticket_id);
+    const [headers, setHeaders] = useState({});
     const [comment, setComment] = useState("");
 
     useEffect(() => {
 
-        const headers = {
+        const token = localStorage.getItem('token');
+        const decoded = jwt.decode(token);
+        if(!decoded) {
+          router.push('/connexion');
+        }
+        setHeaders({
             'Content-Type': 'application/json',
-            'X-API-Key': `ksklkweiowekdl908w03iladkl`
-          };
+            'Authorization': `ksklkweiowekdl908w03iladkl ${token}`
+        });
 
         if (ticket_id) {
             setSaveTicketId(ticket_id);

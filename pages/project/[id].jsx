@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState, useRef } from 'react';
+import jwt from 'jsonwebtoken';
 import styles from '../../styles/Project.module.css';
 import TicketPopup from '../../component/TicketPopup';
 
@@ -17,13 +18,20 @@ export default function Project() {
   const [chekedBoxes, setChekedBoxes] = useState([]);
   const popupRef = useRef(null);
   const [fetchData, setFetchData] = useState(false);
-  const [headers, setHeaders] = useState({
-                'Content-Type': 'application/json',
-                'X-API-Key': `ksklkweiowekdl908w03iladkl`
-              });
+  const [headers, setHeaders] = useState({});
 
 
   useEffect(() => {
+
+    const token = localStorage.getItem('token');
+    const decoded = jwt.decode(token);
+    if(!decoded) {
+      router.push('/connexion');
+    }
+     setHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `ksklkweiowekdl908w03iladkl ${token}`
+    });
 
     fetch(`https://james-bug-api.herokuapp.com/project/${id}`, { headers: headers })
       .then(res => res.json())

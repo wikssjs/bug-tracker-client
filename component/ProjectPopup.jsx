@@ -10,16 +10,20 @@ export default function ProjectPopup({ setShowPopup, setNotification, setAddProj
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [chekedBoxes, setChekedBoxes] = useState([]);
     const popupRef = useRef(null);
-    const [headers, setHeaders] = useState({
-        'Content-Type': 'application/json',
-        'X-API-Key': `ksklkweiowekdl908w03iladkl`
-      });
+    const [headers, setHeaders] = useState({});
 
 
 
 
 
     useEffect(() => {
+
+        const token = localStorage.getItem('token');
+        setHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `ksklkweiowekdl908w03iladkl ${token}`
+        });
+
         fetch('https://james-bug-api.herokuapp.com/users', {headers: headers})
             .then(res => res.json())
             .then(data => setContributors(data.users))
