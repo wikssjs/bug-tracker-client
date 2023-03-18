@@ -43,7 +43,7 @@ export default function Ticket() {
     }
 
     if (saveTicketId) {
-      fetch(`http://192.168.0.26:5000/ticket?ticket_id=${saveTicketId}`, {
+      fetch(`https://james-bug-api.herokuapp.com/ticket?ticket_id=${saveTicketId}`, {
         headers: headers,
       })
         .then((res) => res.json())
@@ -52,7 +52,7 @@ export default function Ticket() {
           setAssignee(data.assigners);
         });
 
-      fetch("http://192.168.0.26:5000/users", { headers: headers })
+      fetch("https://james-bug-api.herokuapp.com/users", { headers: headers })
         .then((res) => res.json())
         .then((data) => setContributors(data.users));
     }
