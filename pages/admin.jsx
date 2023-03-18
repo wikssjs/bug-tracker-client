@@ -73,7 +73,6 @@ export default function Admin() {
   return (
     <main className={`${styles.admin} col container-fluid px-5 mt-5`}>
       <div className="row">
-        {//*Users Table}
         <div className="col-md-6">
           <div className="card shadow-lg">
             <div className="card-header">
@@ -104,7 +103,6 @@ export default function Admin() {
           </div>
         </div>
 
-        {//*Edit User Form}
 
         <div className="col-md-6">
           <div className="card shadow-lg">
