@@ -43,9 +43,12 @@ export default function Ticket() {
     }
 
     if (saveTicketId) {
-      fetch(`https://james-bug-api.herokuapp.com/ticket?ticket_id=${saveTicketId}`, {
-        headers: headers,
-      })
+      fetch(
+        `https://james-bug-api.herokuapp.com/ticket?ticket_id=${saveTicketId}`,
+        {
+          headers: headers,
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setTicket(data.ticket);

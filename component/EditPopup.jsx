@@ -97,6 +97,7 @@ export default function EditPopup({ setShowEditPopup, setNotification, editProje
         })
 
         if (response.ok) {
+            alert('Project has been edited');
             setNotification({ show: true, name: name, message: 'has been edited' });
             setFetchData(!fetchData);
             setShowEditPopup(false);
