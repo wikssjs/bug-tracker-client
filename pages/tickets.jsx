@@ -29,7 +29,7 @@ export default function Tickets() {
     fetch("https://james-bug-api.herokuapp.com/tickets", { headers: headers })
       .then((res) => res.json())
       .then((data) => setTickets(data.tickets));
-  }, []);
+  }, [router]);
 
   //* Redirecting to a ticket
   function redirectUser(event) {

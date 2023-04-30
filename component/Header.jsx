@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import styles from '../styles/Header.module.css'
+import Link from 'next/link';
 import Image from 'next/image';
 import bug from '../public/bug.png'
 import jwt from 'jsonwebtoken';
@@ -17,9 +17,6 @@ export default function Header() {
     const token = localStorage.getItem("token");
     setCurrentUser(jwt.decode(token));
   }, [currentUser])
-
-
-
 
 
   return (

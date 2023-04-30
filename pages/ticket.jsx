@@ -59,7 +59,7 @@ export default function Ticket() {
         .then((res) => res.json())
         .then((data) => setContributors(data.users));
     }
-  }, [saveTicketId, fetchData]);
+  }, [saveTicketId, fetchData, headers,router, ticket_id]);
 
   //* Handle Popup
   const handlePopup = () => {

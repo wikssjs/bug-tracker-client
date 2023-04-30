@@ -82,7 +82,7 @@ export default function Main({ user }) {
     fetch("https://james-bug-api.herokuapp.com/", { headers: headers })
       .then((res) => res.json())
       .then((data) => setProjects(data));
-  }, [fetchData]);
+  }, [fetchData,router]);
 
   //* Show the notification when a project is added or edited
   useEffect(() => {

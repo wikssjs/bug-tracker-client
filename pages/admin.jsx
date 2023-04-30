@@ -25,7 +25,7 @@ export default function Admin() {
     fetch("https://james-bug-api.herokuapp.com/users", { headers: headers })
       .then((res) => res.json())
       .then((data) => setUsers(data.users));
-  }, [fetchData]);
+  }, [fetchData,headers]);
 
   //*Handle Click on a user in the table
   function handleClick(event) {
